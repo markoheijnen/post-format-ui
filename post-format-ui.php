@@ -39,6 +39,9 @@ class Post_Format_UI {
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				add_filter( 'get_user_option_screen_layout_' . $screen->id, array( $this, 'change_editscreen_columns' ) );
 			}
+			else {
+				add_action( 'admin_head', array( $this, 'set_post_icon' ) );
+			}
 
 			add_action( 'save_post', array( $this, 'metabox_selector_save' ), 10, 2 );
 			add_filter( 'wp_insert_post_data', array( $this, 'new_title' ), 10, 2 );
@@ -103,6 +106,20 @@ class Post_Format_UI {
 	}
 
 
+
+	public function set_post_icon() {
+		global $post;
+
+		$format = get_post_format( $post->ID );
+
+		if( $format ) {
+			$icon_url = $this->get_icon( $format );
+			echo '<style type="text/css" media="all">.wrap #icon-edit, .wrap #icon-post { background: url(' . $icon_url . ') center center no-repeat; background-size: 100%; }</style>';
+		}
+	}
+
+
+
 	public function get_icon( $slug )  {
 		switch ( $slug ) {
 			case 'aside':
@@ -133,10 +150,10 @@ class Post_Format_UI {
 				$icon = 'audio.png';
 				break;
 			default: // Default
-				$icon = 'status.png';
+				$icon = 'standard.png';
 		}
 
-		return plugins_url( 'icons/' . $icon, __FILE__ );
+		return esc_url( plugins_url( 'icons/' . $icon, __FILE__ ) );
 	}
 
 
