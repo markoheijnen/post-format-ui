@@ -1,0 +1,122 @@
+.post-format-select {
+	display: none;
+}
+
+
+
+/* Layout */
+#custom_content_types_widget .inside {
+	padding: 30px 0 0 30px;
+	margin: 0;
+}
+#custom_content_types_widget .inside .term_selectbox {
+	width: 64px;
+	margin: 0 30px 30px 0;
+}
+#custom_content_types_widget .inside .term_selectbox > input {
+	width: 64px;
+	height: 64px;
+	background-size: 55%;
+}
+#custom_content_types_widget .inside .term_selectbox > input:hover {
+	background-size: 60%;
+}
+#custom_content_types_widget .inside .term_selectbox .title {
+	width: 64px;
+	font-size: 1.3em;
+}
+#select-content-type .inside {
+	max-width: 640px;
+}
+#select-content-type .hndle {
+	margin-bottom: 20px;
+}
+.js .term_selectbox {
+	float: left;
+	width: 128px;
+	margin: 0 30px 40px 0;
+	opacity: 0;
+}
+.term_selectbox .title {
+	font-size: 2em;
+	padding-top: 20px;
+	width: 128px;
+	text-align: center;
+}
+.term_selectbox input {
+	background-color: #FFFFFF;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 45%;
+	width: 128px;
+	height: 128px;
+	font-size: 0px;
+	cursor: pointer;
+	border: none;
+	transition: all 0.05s ease-in-out;
+	-moz-transition: all 0.05s ease-in-out;
+	-webkit-transition: all 0.05s ease-in-out;
+	-o-transition: all 0.05s ease-in-out;
+	-moz-box-shadow: 0px 0px 10px #cccccc;
+	-webkit-box-shadow: 0px 0px 10px #cccccc;
+	box-shadow: 0px 0px 10px #cccccc;
+}
+.term_selectbox input:hover {
+	background-size: 50%;
+	-moz-box-shadow: 0px 0px 15px #aacede;
+	-webkit-box-shadow: 0px 0px 15px #aacede;
+	box-shadow: 0px 0px 15px #aacede;
+}
+.cct_term_images span {
+	display: inline-block;
+	position: relative;
+	margin: 0 10px 20px 0;
+	padding: 10px;
+	border: 1px solid #e6e6e6;
+	cursor: pointer;
+}
+.cct_term_images .active {
+	border-color: #cccccc;
+	-moz-box-shadow: 0px 0px 10px #cccccc;
+	-webkit-box-shadow: 0px 0px 10px #cccccc;
+	box-shadow: 0px 0px 10px #cccccc;
+	background: #e6e6e6;
+}
+.cct_term_images img,
+.term_image {
+	height: 40px;
+	width: auto;
+}
+.cct_term_images .delete {
+	background: url(../images/remove.png) no-repeat top left;
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	right: -8px;
+	top: -8px;
+	font-size: 0px;
+	height: 16px;
+	width: 16px;
+	margin: 0px;
+	padding: 0;
+	border: none;
+}
+.cct_term_images.add .cct_term_images_add {
+	border: none;
+	text-decoration: underline;
+}
+.cct_term_images.add .cct_term_images_add img {
+	width: 16px;
+	height: 16px;
+	vertical-align: bottom;
+	margin-right: 5px;
+}
+#select-content-type,
+#select-content-type .hndle,
+#select-content-type .handlediv {
+	background: none;
+	border: 0px;
+}
+#post-body #normal-sortables {
+	min-height: 0;
+}

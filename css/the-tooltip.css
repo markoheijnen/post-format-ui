@@ -1,0 +1,289 @@
+.the-tooltip {
+  position: relative;
+}
+.the-tooltip :focus + :last-child, .the-tooltip:focus > :last-child, .the-tooltip:hover > :last-child {
+  opacity: 1;
+  -webkit-transition: 0.4s 0s;
+  -moz-transition: 0.4s 0s;
+  -ms-transition: 0.4s 0s;
+  -o-transition: 0.4s 0s;
+  transition: 0.4s 0s;
+  visibility: visible;
+}
+.the-tooltip > :last-child {
+  border: solid 1px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 17px;
+  line-height: 1.5;
+  opacity: 0;
+  padding: 10px 20px;
+  position: absolute;
+  -webkit-transition: 0.2s 0s;
+  -moz-transition: 0.2s 0s;
+  -ms-transition: 0.2s 0s;
+  -o-transition: 0.2s 0s;
+  transition: 0.2s 0s;
+  visibility: hidden;
+  width: 250px;
+  z-index: 999;
+}
+.the-tooltip > :last-child * {
+  max-width: 100%;
+}
+.the-tooltip > :last-child:after, .the-tooltip > :last-child:before {
+  border: solid 11px;
+  content: "";
+  display: block;
+  margin: 0 20px 0 20px;
+  position: absolute;
+}
+.the-tooltip.bottom > :last-child {
+  margin-top: 15px;
+  top: 100%;
+}
+.the-tooltip.bottom > :last-child:after {
+  margin-bottom: -1px;
+}
+.the-tooltip.bottom > :last-child:after, .the-tooltip.bottom > :last-child:before {
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+  bottom: 100%;
+}
+.the-tooltip.bottom > :last-child:before {
+  margin-bottom: 0px;
+}
+.the-tooltip.center > :last-child {
+  left: -125px;
+  margin-left: 50%;
+}
+.the-tooltip.center > :last-child:after, .the-tooltip.center > :last-child:before {
+  left: 50%;
+  margin-left: -10px;
+}
+.the-tooltip.left > :last-child {
+  left: 0;
+}
+.the-tooltip.left > :last-child:after, .the-tooltip.left > :last-child:before {
+  left: 0;
+}
+.the-tooltip.right > :last-child {
+  right: 0;
+}
+.the-tooltip.right > :last-child:after, .the-tooltip.right > :last-child:before {
+  right: 0;
+}
+.the-tooltip.top > :last-child {
+  bottom: 100%;
+  margin-bottom: 15px;
+}
+.the-tooltip.top > :last-child:after {
+  margin-top: -1px;
+}
+.the-tooltip.top > :last-child:after, .the-tooltip.top > :last-child:before {
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  top: 100%;
+}
+.the-tooltip.top > :last-child:before {
+  margin-top: 0px;
+}
+.the-tooltip.auto-width > :last-child {
+  white-space: nowrap;
+  width: auto;
+}
+.the-tooltip.full-width > :last-child {
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+}
+.the-tooltip.apple-green > :last-child {
+  background-color: #8db600;
+  border-color: #658300;
+  color: #161d00;
+}
+.the-tooltip.apple-green > :last-child:after {
+  border-color: #8db600;
+}
+.the-tooltip.apple-green > :last-child:before {
+  border-color: #658300;
+}
+.the-tooltip.apple-green > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.the-tooltip.apricot > :last-child {
+  background-color: #fbceb1;
+  border-color: #f9b080;
+  color: #441d03;
+}
+.the-tooltip.apricot > :last-child:after {
+  border-color: #fbceb1;
+}
+.the-tooltip.apricot > :last-child:before {
+  border-color: #f9b080;
+}
+.the-tooltip.apricot > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.the-tooltip.black > :last-child {
+  background-color: #333333;
+  border-color: #0d0d0d;
+  color: #ffffff;
+}
+.the-tooltip.black > :last-child:after {
+  border-color: #333333;
+}
+.the-tooltip.black > :last-child:before {
+  border-color: #0d0d0d;
+}
+.the-tooltip.black > :last-child {
+  text-shadow: 0 1px 0 #000000;
+}
+.the-tooltip.carrot-orange > :last-child {
+  background-color: #ed9121;
+  border-color: #b3690f;
+  color: #251603;
+}
+.the-tooltip.carrot-orange > :last-child:after {
+  border-color: #ed9121;
+}
+.the-tooltip.carrot-orange > :last-child:before {
+  border-color: #b3690f;
+}
+.the-tooltip.carrot-orange > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.the-tooltip.eggplant > :last-child {
+  background-color: #614051;
+  border-color: #33222b;
+  color: #ffffff;
+}
+.the-tooltip.eggplant > :last-child:after {
+  border-color: #614051;
+}
+.the-tooltip.eggplant > :last-child:before {
+  border-color: #33222b;
+}
+.the-tooltip.eggplant > :last-child {
+  text-shadow: 0 1px 0 #000000;
+}
+.the-tooltip.forest-green > :last-child {
+  background-color: #014421;
+  border-color: #001209;
+  color: #ffffff;
+}
+.the-tooltip.forest-green > :last-child:after {
+  border-color: #014421;
+}
+.the-tooltip.forest-green > :last-child:before {
+  border-color: #001209;
+}
+.the-tooltip.forest-green > :last-child {
+  text-shadow: 0 1px 0 #000000;
+}
+.the-tooltip.bright-lavender > :last-child {
+  background-color: #bf94e4;
+  border-color: #9a57d5;
+  color: #250e38;
+}
+.the-tooltip.bright-lavender > :last-child:after {
+  border-color: #bf94e4;
+}
+.the-tooltip.bright-lavender > :last-child:before {
+  border-color: #9a57d5;
+}
+.the-tooltip.bright-lavender > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.the-tooltip.dark-midnight-blue > :last-child {
+  background-color: #003366;
+  border-color: #000d1a;
+  color: #ffffff;
+}
+.the-tooltip.dark-midnight-blue > :last-child:after {
+  border-color: #003366;
+}
+.the-tooltip.dark-midnight-blue > :last-child:before {
+  border-color: #000d1a;
+}
+.the-tooltip.dark-midnight-blue > :last-child {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+.the-tooltip.magic-mint > :last-child {
+  background-color: #aaf0d1;
+  border-color: #69e5ae;
+  color: #0c432a;
+}
+.the-tooltip.magic-mint > :last-child:after {
+  border-color: #aaf0d1;
+}
+.the-tooltip.magic-mint > :last-child:before {
+  border-color: #69e5ae;
+}
+.the-tooltip.magic-mint > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.the-tooltip.mustard > :last-child {
+  background-color: #ffdb58;
+  border-color: #f1bd00;
+  color: #3f3100;
+}
+.the-tooltip.mustard > :last-child:after {
+  border-color: #ffdb58;
+}
+.the-tooltip.mustard > :last-child:before {
+  border-color: #f1bd00;
+}
+.the-tooltip.mustard > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.the-tooltip.sienna > :last-child {
+  background-color: #882d17;
+  border-color: #47170c;
+  color: #ffffff;
+}
+.the-tooltip.sienna > :last-child:after {
+  border-color: #882d17;
+}
+.the-tooltip.sienna > :last-child:before {
+  border-color: #47170c;
+}
+.the-tooltip.sienna > :last-child {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+.the-tooltip.sky-blue > :last-child {
+  background-color: #87ceeb;
+  border-color: #45b3e0;
+  color: #0d3a4d;
+}
+.the-tooltip.sky-blue > :last-child:after {
+  border-color: #87ceeb;
+}
+.the-tooltip.sky-blue > :last-child:before {
+  border-color: #45b3e0;
+}
+.the-tooltip.sky-blue > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.the-tooltip.sunset > :last-child {
+  background-color: #fad6a5;
+  border-color: #f6b55d;
+  color: #4f2f04;
+}
+.the-tooltip.sunset > :last-child:after {
+  border-color: #fad6a5;
+}
+.the-tooltip.sunset > :last-child:before {
+  border-color: #f6b55d;
+}
+.the-tooltip.sunset > :last-child {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
