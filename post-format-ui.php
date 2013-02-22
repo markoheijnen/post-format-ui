@@ -25,29 +25,39 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 class Post_Format_UI {
+	public $compat = false;
 
 	public function __construct() {
 		add_action( 'current_screen', array( $this, 'current_screen' ) );
 	}
 
 	public function current_screen( $screen ) {
-		if ( 'post' == $screen->base && 'post' == $screen->post_type && post_type_supports( 'post', 'post-formats' ) ) {
-			if ( 'add' == $screen->action ) {
-				add_action( 'admin_head', array( $this, 'clean_screen' ) );
-				add_action( 'edit_form_after_title', array( $this, 'show_postformats' ) );
+		global $wp_version;
 
-				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-				add_filter( 'get_user_option_screen_layout_' . $screen->id, array( $this, 'change_editscreen_columns' ) );
-			}
-			else {
-				add_action( 'admin_head', array( $this, 'set_post_icon' ) );
-			}
+		if ( 'post' != $screen->base || 'post' != $screen->post_type || ! post_type_supports( 'post', 'post-formats' ) )
+			return;
 
-			add_action( 'save_post', array( $this, 'metabox_selector_save' ), 10, 2 );
-			add_filter( 'wp_insert_post_data', array( $this, 'new_title' ), 10, 2 );
-
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		// Before 3.6
+		if ( version_compare( $wp_version, "3.5.9", "<" ) ) {
+			include 'inc/compat.php';
+			$this->compat = new Post_Format_UI_Compat( $screen );
 		}
+
+		if ( 'add' == $screen->action ) {
+			add_action( 'admin_head', array( $this, 'clean_screen' ) );
+			add_action( 'edit_form_after_title', array( $this, 'show_postformats' ) );
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_filter( 'get_user_option_screen_layout_' . $screen->id, array( $this, 'change_editscreen_columns' ) );
+		}
+		else {
+			add_action( 'admin_head', array( $this, 'set_post_icon' ) );
+		}
+
+		add_action( 'save_post', array( $this, 'metabox_selector_save' ), 10, 2 );
+		add_filter( 'wp_insert_post_data', array( $this, 'new_title' ), 10, 2 );
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 	}
 
 
