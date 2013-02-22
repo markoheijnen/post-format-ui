@@ -13,6 +13,7 @@ class Post_Format_UI_Compat {
 			add_action( 'save_post', array( $this, 'post_format_fields_save' ), 10, 2 );
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		}
 
 		// Before 3.5 the hook "edit_form_after_title" didn't exists. 
@@ -96,7 +97,7 @@ class Post_Format_UI_Compat {
 		}
 	}
 
-	public function post_format_fields_save() {
+	public function post_format_fields_save( $post_id ) {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 			return;
 
@@ -106,6 +107,8 @@ class Post_Format_UI_Compat {
 		if ( ! current_user_can( 'edit_post', $post_id ) )
 			return;
 
+		$post_data = &$_POST;
+
 		if ( isset( $post_data[ '_wp_format_url' ] ) ) { 
 			update_post_meta( $post_ID, '_wp_format_url', addslashes( esc_url_raw( stripslashes( $post_data['_wp_format_url'] ) ) ) ); 
 		} 
@@ -113,7 +116,7 @@ class Post_Format_UI_Compat {
 		$format_keys = array( 'quote', 'quote_source', 'image', 'gallery', 'media' ); 
 		foreach ( $format_keys as $key ) { 
 			if ( isset( $post_data[ '_wp_format_' . $key ] ) ) 
-				update_post_meta( $post_ID, '_wp_format_' . $key, wp_filter_post_kses( $post_data[ '_wp_format_' . $key ] ) ); 
+				update_post_meta( $post_id, '_wp_format_' . $key, wp_filter_post_kses( $post_data[ '_wp_format_' . $key ] ) ); 
 		} 
 	}
 
@@ -141,6 +144,10 @@ class Post_Format_UI_Compat {
 		return $values;
 	}
 
+
+	public function enqueue_scripts() {
+		wp_enqueue_script( 'post_format_ui_compat', plugins_url( '/js/compat.js', dirname( __FILE__ ) ), array( 'media-models' ), false, 1 );
+	}
 
 	public function enqueue_styles() {
 		wp_enqueue_style( 'post_format_ui_compat', plugins_url( '/css/compat.css', dirname( __FILE__ ) ) );
